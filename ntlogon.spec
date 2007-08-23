@@ -1,6 +1,6 @@
 %define name    ntlogon
 %define version 0.8b
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Autogenerator for NT logon scripts
 Name: %name
