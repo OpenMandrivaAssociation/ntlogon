@@ -10,6 +10,7 @@ Source0: %name-%version.tar.bz2
 URL: http://www.craigelachie.org/rhacer/ntlogon/
 License: GPL
 Group: Networking/Other
+BuildRoot: %_tmppath/%name-buildroot
 BuildArch: noarch
 
 %description
