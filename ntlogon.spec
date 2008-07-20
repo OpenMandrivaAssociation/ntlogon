@@ -1,17 +1,13 @@
-%define name    ntlogon
-%define version 0.8b
-%define release %mkrel 2
-
-Summary: Autogenerator for NT logon scripts
-Name: %name
-Version: %version
-Release: %release
-Source0: %name-%version.tar.bz2
-URL: http://www.craigelachie.org/rhacer/ntlogon/
-License: GPL
-Group: Networking/Other
-BuildRoot: %_tmppath/%name-buildroot
-BuildArch: noarch
+Summary:	Autogenerator for NT logon scripts
+Name:		ntlogon
+Version:	0.8b
+Release:	%mkrel 4
+License:	GPL
+Group:		Networking/Other
+URL:		http://www.craigelachie.org/rhacer/ntlogon/
+Source0:	%name-%version.tar.bz2
+BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 NTLogon is a Python script that generates Samba/NT-logon scripts from an
@@ -21,7 +17,6 @@ a cross between an INI file and a DOS batchfile, so most Windows users
 will feel somewhat comfortable with it.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 
 %setup -c -n %{name}-%{version}
 
@@ -29,16 +24,17 @@ rm -rf $RPM_BUILD_ROOT
 # no build for no arch ... no build for no arch ...
 
 %install
-mkdir -p $RPM_BUILD_ROOT{%{_prefix}/bin,/etc}/
-install -m 755 ntlogon.py   $RPM_BUILD_ROOT%_bindir/ntlogon
-install -m 644 ntlogon.conf $RPM_BUILD_ROOT%_sysconfdir
+rm -rf %{buildroot}
+
+mkdir -p %{buildroot}{%{_prefix}/bin,/etc}/
+install -m 755 ntlogon.py   %{buildroot}%{_bindir}/ntlogon
+install -m 644 ntlogon.conf %{buildroot}%{_sysconfdir}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc README
-%_bindir/*
-%config(noreplace) %_sysconfdir/*
-
+%config(noreplace) %{_sysconfdir}/*
+%{_bindir}/*
