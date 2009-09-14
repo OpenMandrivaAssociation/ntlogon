@@ -1,7 +1,7 @@
 Summary:	Autogenerator for NT logon scripts
 Name:		ntlogon
 Version:	0.11.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Networking/Other
 URL:		http://www.craigelachie.org/rhacer/ntlogon/
