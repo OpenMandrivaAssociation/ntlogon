@@ -4,7 +4,7 @@ Version:	0.11.0
 Release:	3
 License:	GPL
 Group:		Networking/Other
-URL:		http://www.craigelachie.org/rhacer/ntlogon/
+URL:		https://www.craigelachie.org/rhacer/ntlogon/
 Source0:	%name-%version.tar.bz2
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
